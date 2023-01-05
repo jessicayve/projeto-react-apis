@@ -26,6 +26,18 @@ height: 44px;
 color: white;
 font-size: large;
 margin-top: 100px;
+cursor: pointer;
 `
 
+export const Button = styled.button`
 
+
+`
+
+export const GotoHomePageButton = styled.h1`
+cursor: pointer;
+text-decoration-line: underline;
+font-weight: 700;
+font-size: 24px;
+
+`

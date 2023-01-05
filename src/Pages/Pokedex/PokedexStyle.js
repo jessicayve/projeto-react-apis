@@ -1,16 +1,33 @@
 import styled from "styled-components";
 
 
-export const ContainerCard = styled.div`
- display: flex;
- flex-wrap: wrap;
- justify-content: space-evenly;
- gap: 36px;
- padding: 40px;
- background-color: #5E5E5E;
- margin-left: -100px;
- margin-right: -74px;
- margin-top: 100px;
- 
 
-`;
+export const ContainerPokedex = styled.main`
+    background-color: #5E5E5E;
+    display: flex;
+    flex-direction: column;
+    color: #FFFFFF;
+    padding: 14px;
+    gap: 40px;
+    border: 1px solid green;
+    
+   
+   
+
+   
+`
+export const TituloPokedex = styled.div`
+font-size: 50px;
+margin-left: 20px;
+
+`
+export const Pokedex = styled.div`
+
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px 40px; 
+    row-gap: 48px;
+ `
+
+
+ 

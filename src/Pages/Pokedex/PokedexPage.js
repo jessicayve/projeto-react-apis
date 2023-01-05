@@ -1,23 +1,42 @@
-// import React from 'react'
-// import { Header } from '../../Components/Header/Header'
-// import { CardPokemon } from '../../Components/PokemonCard/PokemonCardStyle'
+import React from 'react'
+import { Header } from '../../Components/Header/Header'
+import { useContext } from 'react'
+import { ContainerPokedex, Pokedex,TituloPokedex } from './PokedexStyle'
+import { GlobalContext } from '../../GlobalContext/GlobalContext'
+import { PokemonCard } from '../../Components/PokemonCard/PokemonCard'
 
 
-// export const PokedexPage = (props) => {
+
+
+function PokedexPage() {
+
+    const context = useContext(GlobalContext)
+    const { pokedex, pokemon, setPokemon, removeFromPokedex, setPokedex } = context;
 
 
 
-//   return (
-  
-//       <>
-//       <Header/>
-//       <CardPokemon>
-//         <h1>{props.pokemon.data.id}</h1>
-//         <p>{props.pokemon.data.type}</p>
-//         <p>{props.pokemon.data.name}</p>
-//         <img src={props.pokemon.data.sprites?.other["official-artwork"].front_default} alt="pokemons"/>
-//         </CardPokemon>
-//         </>
-      
-//       )
-// }
+    return (
+        <>
+        <Header  />
+        <ContainerPokedex>
+            
+            <TituloPokedex>Meus Pokémons</TituloPokedex>
+            
+            <Pokedex>
+            
+                {pokedex.map((pokemon)=>{
+                    return(
+                    <PokemonCard 
+                    key={pokemon.id} 
+                    pokemonUrl={`${"https://pokeapi.co/api/v2/pokemon"}/${pokemon.id}`}
+                    removeFromPokedex={removeFromPokedex}
+                      />)
+                })}
+          
+            </Pokedex>
+        </ContainerPokedex>
+        </>
+    );
+}
+
+export default PokedexPage;
