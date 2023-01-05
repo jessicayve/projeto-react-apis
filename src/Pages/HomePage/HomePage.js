@@ -1,57 +1,40 @@
-import { Header } from '../../Components/Header/Header'
-import { ContainerCard } from './HomePageStyle'
-import React from 'react'
-import axios from 'axios'
-import { BASE_URL } from '../../constants/url'
-import { useEffect, useState } from 'react'
-import { PokemonCard } from '../../Components/PokemonCard/PokemonCard'
-import { TypesContainer } from '../../Components/PokemonCard/PokemonCardStyle'
+import { Header } from '../../Components/Header/Header';
+import { ContainerCard, PokemonContainer } from './HomePageStyle';
+import React, { useContext } from 'react';
+import { PokemonCard } from '../../Components/PokemonCard/PokemonCard';
+import { GlobalContext } from '../../GlobalContext/GlobalContext';
 
 
 
 
 export const HomePage = () => {
-    
-    const [pokemons, setPokemons] = useState([])
-    const [type, setType] = useState([])
 
-    
-    
+  const context = useContext(GlobalContext)
+  const { pokelist, addPokedex, pokedex } = context
 
-    const fetchPokemons = async () =>{
-        let endpoints = []
-        for ( let i = 1; i<19; i++){
-            endpoints.push(`${BASE_URL}/${i} `)
-        }
-        axios.all(endpoints.map((endpoint)=> axios.get(endpoint))).then((res)=> 
-        setPokemons(res))
-   
-    }
-    useEffect(()=>{
-        fetchPokemons()
-    }, [])
-    
-
-console.log(pokemons)
-    
-
-
-
+  const filteredPokelist = () =>
+    pokelist.filter(
+      (pokemonInList) =>
+        !pokedex.find(
+          (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
+        )
+    );
 
   return (
     <>
-    <Header/>
-    <ContainerCard>
-        {pokemons.map((pokemon, index)=>{
-            return <PokemonCard pokemon={pokemon} type={type} key={index}/>
-            
-        })}
+      <Header />
+      <ContainerCard>
+        <h1 >Todos Pokemóns</h1>
+        <PokemonContainer>
 
-       <TypesContainer/>
+          {filteredPokelist().map((pokemon) => {
+            return <PokemonCard pokemonUrl={pokemon.url} addPokedex={addPokedex} key={pokemon.url} />
 
+          })}
 
-    </ContainerCard>
+        </PokemonContainer>
+      </ContainerCard>
     </>
-   
+
   )
 }

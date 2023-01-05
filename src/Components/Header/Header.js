@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, PokeLogo } from './HeaderStyle'
 import pokemonLogo from '../../assets/pokemonLogo.png'
-import { HeaderButton } from './HeaderStyle'
+import { HeaderButton, GotoHomePageButton} from './HeaderStyle'
 import { useNavigate } from 'react-router-dom'
 import { goToPokedexPage, goToHomePage } from '../../routes/coordinator'
 import { useLocation } from 'react-router-dom'
@@ -29,10 +29,10 @@ export const Header = () => {
         case "/pokedex":
           return(
             <>
-            <button onClick={()=> goToHomePage(navigate)}>
-              Ver Lista de Pokemon
-            </button>
-            <span>Pokedex</span>
+            <GotoHomePageButton onClick={()=> goToHomePage(navigate)}>
+             Todos Pokémons
+            </GotoHomePageButton>
+           
             </>
           )
 
@@ -49,4 +49,4 @@ export const Header = () => {
   )
 }
 
-{/* <HeaderButton onClick={() => goToPokedexPage(navigate)} >Pokedex</HeaderButton> */}
+
