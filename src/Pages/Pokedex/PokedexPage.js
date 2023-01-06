@@ -11,7 +11,7 @@ import { PokemonCard } from '../../Components/PokemonCard/PokemonCard'
 function PokedexPage() {
 
     const context = useContext(GlobalContext)
-    const { pokedex, pokemon, setPokemon, removeFromPokedex, setPokedex } = context;
+    const { pokedex, removeFromPokedex } = context;
 
 
 
@@ -21,7 +21,7 @@ function PokedexPage() {
         <ContainerPokedex>
             
             <TituloPokedex>Meus Pokémons</TituloPokedex>
-            
+
             <Pokedex>
             
                 {pokedex.map((pokemon)=>{
