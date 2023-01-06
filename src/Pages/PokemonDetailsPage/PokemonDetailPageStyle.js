@@ -9,6 +9,8 @@ export const ContainerDetailPage = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
+  padding: 60px;
+  
   .pokebolaContainer {
     overflow: hidden;
     width: 100%;
@@ -31,13 +33,14 @@ export const TitleDetails = styled.h2`
 `;
 
 export const CardDetails = styled.div`
-  width: 94%;
+  width: 100%;
   padding: 1rem;
   color: white;
   font-family: Inter;
   border-radius: 10px;
   position: relative;
   display: flex;
+  
   div {
     display: flex;
     flex-direction: column;
@@ -60,8 +63,8 @@ export const CardDetails = styled.div`
     height: 58px;
     font-family: "Inter";
     font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
+    font-weight: 700px;
+    font-size: 42px;
     line-height: 58px;
     color: #ffffff;
     text-transform: capitalize;
@@ -71,10 +74,10 @@ export const CardDetails = styled.div`
     top: 39px;
   }
   .imgPokemon {
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     position: absolute;
-    left: 80%;
+    left: 84%;
     top: -105px;
     z-index: 1;
   }
@@ -220,23 +223,25 @@ export const Pokebola = styled.div`
   border-radius: 10px;
   overflow: hidden;
   position: absolute;
-  left: 0;
-  top: 0;
+  
 `;
 
 export const LogoPokemon = styled.img`
-  width: 750px;
-  height: 720px;
+  
+  width: 620px;
   position: absolute;
-  top: -97px;
-  right: -115px;
+  margin-left: 446px;
+  margin-top: -18px;
+  opacity: 0.8;
+
 `;
 
 export const LogoPokemonContainer = styled.img`
-  width: 1080px;
-  height: 950px;
+  width: 890px;
+  height: 692px;
   position: absolute;
-  top: -190px;
-  right: 10%;
+  margin-top: 100px;
+ margin-left: 224px;
+ opacity: 0.4;
 `;
 

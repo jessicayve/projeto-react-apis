@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import axios from "axios";
 import {GlobalContext} from "./GlobalContext/GlobalContext";
 import { ChakraProvider } from "@chakra-ui/react";
+import ModalPokemon from "./Components/ModalPokemon/ModalPokemon";
+
 
 
 function App() {
@@ -48,7 +50,7 @@ const addToPokedex = (pokemonToAdd) => {
 
 const removeFromPokedex = (pokemonToRemove) => {
   const newPokedex = pokedex.filter(
-    (pokemonInPokedex) => pokemonInPokedex.name !== pokemonToRemove.name
+    (pokemonInPokedex) => pokemonInPokedex.id !== pokemonToRemove.id
   );
 
   setPokedex(newPokedex);
@@ -69,9 +71,12 @@ const context = {
   return (
     <>
     <GlobalContext.Provider value={context}>
-    
+    <ChakraProvider>
+
     <GlobalStyle/>
+    <ModalPokemon/>
     <Router/>
+    </ChakraProvider>
    
     </GlobalContext.Provider>
     

@@ -21,7 +21,6 @@ import {
   ContainerMoves,
   TypeItemPokemon,
   LogoPokemonContainer,
-  // PokebolaContainer
 } from "./PokemonDetailPageStyle";
 import logoPokemonCard from "../../assets/logoPokemonCard.png";
 
@@ -30,11 +29,12 @@ function PokemonDetailPage() {
   const [bgColor, setBgColor] = useState("");
   const [types, setTypes] = useState([]);
   const [totalStats, setTotalStats] = useState(0);
+  
 
   const context = useContext(GlobalContext);
   const params = useParams();
 
-  const { setPokemonDetails } = context;
+  const { setPokemonDetails,  removeFromPokedex } = context;
 
   useEffect(() => {
     fetchPokemonDetails();
@@ -55,14 +55,14 @@ function PokemonDetailPage() {
         setTotalStats(total);
       })
       .catch((error) => {
-        console.log("Erro ao buscar lista de pokemons", error);
+        console.log(error);
       });
   };
 
   return (
     <>
-      <Header />
-      <ContainerDetailPage>
+      <Header  />
+      <ContainerDetailPage >
             <div className="pokebolaContainer">
               <LogoPokemonContainer src={logoPokemonCard} alt="logo do Pokémon" />
             </div>
@@ -169,7 +169,7 @@ function PokemonDetailPage() {
             </div>
           </ContainerBaseStats>
           <div>
-            <p className="idPokemon">#0{pokemon.id}</p>
+            <p className="idPokemon">#{pokemon.id}</p>
             <p className="name">{pokemon.name}</p>
 
             <PokemonTypeContainer>

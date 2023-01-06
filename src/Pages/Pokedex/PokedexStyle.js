@@ -9,7 +9,7 @@ export const ContainerPokedex = styled.main`
     color: #FFFFFF;
     padding: 14px;
     gap: 40px;
-    border: 1px solid green;
+    
     
    
    
