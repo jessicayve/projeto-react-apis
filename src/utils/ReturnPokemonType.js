@@ -59,4 +59,3 @@ export const getTypes = (type) => {
         return water;
     }
   };
-

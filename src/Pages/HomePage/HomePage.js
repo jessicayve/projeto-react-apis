@@ -16,7 +16,7 @@ export const HomePage = () => {
     pokelist.filter(
       (pokemonInList) =>
         !pokedex.find(
-          (pokemonInPokedex) => pokemonInList.id === pokemonInPokedex.id
+          (pokemonInPokedex) => pokemonInList.name === pokemonInPokedex.name
         )
     );
 
@@ -24,11 +24,11 @@ export const HomePage = () => {
     <>
       <Header />
       <ContainerCard>
-        <h1 >Todos Pokemóns</h1>
+        <h1>Todos Pokemóns</h1>
         <PokemonContainer>
 
           {filteredPokelist().map((pokemon) => {
-            return <PokemonCard pokemonUrl={pokemon.url} addPokedex={addPokedex} key={pokemon.url} />
+            return <PokemonCard  addPokedex={addPokedex} key={pokemon.url} pokemonUrl={pokemon.url} />
 
           })}
 

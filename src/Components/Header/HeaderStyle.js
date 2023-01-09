@@ -1,16 +1,23 @@
 import styled from "styled-components";
 
 
-export const Container = styled.header`
-    display: flex;
-    gap: 26px;
-    padding: 26px;
-    width: 90vw;
-    height: 30vh;
-    align-items: center;
-    justify-content: space-around;
-    
-`
+
+
+export const Container = styled.div`
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 158px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 1;
+  img {
+    width: 307px;
+    height: 113px;
+  }
+`;
 
 export const PokeLogo = styled.img`
 `
@@ -39,3 +46,4 @@ text-decoration-line: underline;
 font-weight: 700;
 font-size: 24px;
 `
+

@@ -1,6 +1,4 @@
-import styled from "styled-components";
-
-
+import styled from "styled-components"
 
 export const ContainerPokedex = styled.main`
     background-color: #5E5E5E;
@@ -28,6 +26,3 @@ export const Pokedex = styled.div`
     margin: 0px 40px; 
     row-gap: 48px;
  `
-
-
- 

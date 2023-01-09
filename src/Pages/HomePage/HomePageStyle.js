@@ -4,11 +4,11 @@ import styled from "styled-components";
 export const ContainerCard = styled.div`
  display: flex;
  flex-wrap: wrap;
- padding: 40px;
+ padding: 80px;
  background-color: #5E5E5E;
- margin-left: -180px;
- margin-right: -160px;
- gap: 10px;
+ 
+
+ gap: 30px;
  
  
 h1{
@@ -25,5 +25,7 @@ export const PokemonContainer = styled.div`
  justify-content: center;
  background-color: #5E5E5E;
  row-gap: 80px;
+ width: 100%;
+ height: 100%;
 
-`
+` 

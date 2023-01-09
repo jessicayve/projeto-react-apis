@@ -2,8 +2,8 @@ import { React, useState, useEffect, useContext } from "react";
 import { GlobalContext } from "../../GlobalContext/GlobalContext";
 import axios from "axios";
 import { Header } from "../../Components/Header/Header";
-import { getColors } from "../../utils/ReturnCardColor";
 import { getTypes } from "../../utils/ReturnPokemonType";
+import { getColors } from "../../utils/ReturnCardColors";
 import { useParams } from "react-router-dom";
 import {
   CardDetails,
@@ -21,7 +21,7 @@ import {
   ContainerMoves,
   TypeItemPokemon,
   LogoPokemonContainer,
-} from "./PokemonDetailPageStyle";
+} from "../PokemonDetailsPage/PokemonDetailsPageStyle"
 import logoPokemonCard from "../../assets/logoPokemonCard.png";
 
 function PokemonDetailPage() {
