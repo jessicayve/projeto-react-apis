@@ -245,3 +245,4 @@ export const LogoPokemonContainer = styled.img`
  opacity: 0.4;
 `;
 
+

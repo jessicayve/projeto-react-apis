@@ -1,6 +1,6 @@
 import React from "react";
 import Router from "./routes/Router";
-import { GlobalStyle } from "./GlobalStyle.style";
+import { GlobalStyle } from "./GlobalStyle";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
@@ -10,12 +10,13 @@ import ModalPokemon from "./Components/ModalPokemon/ModalPokemon";
 
 
 
+
 function App() {
 
   
     const [pokedex, setPokedex] = useState([])
     const [pokelist, setPokelist] = useState([]);
-    const[pokemon, setPokemon] = useState([])
+    const [pokemon, setPokemon] = useState([])
     const [pokemonDetails, setPokemonDetails] = useState({});
     
 
@@ -50,7 +51,7 @@ const addToPokedex = (pokemonToAdd) => {
 
 const removeFromPokedex = (pokemonToRemove) => {
   const newPokedex = pokedex.filter(
-    (pokemonInPokedex) => pokemonInPokedex.id !== pokemonToRemove.id
+    (pokemonInPokedex) => pokemonInPokedex.id !== Number(pokemonToRemove)
   );
 
   setPokedex(newPokedex);
@@ -86,3 +87,5 @@ const context = {
 }
 
 export default App;
+
+

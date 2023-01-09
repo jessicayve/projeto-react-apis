@@ -28,7 +28,7 @@ export const HomePage = () => {
         <PokemonContainer>
 
           {filteredPokelist().map((pokemon) => {
-            return <PokemonCard  addPokedex={addPokedex} key={pokemon.url} />
+            return <PokemonCard  addPokedex={addPokedex} key={pokemon.url} pokemonUrl={pokemon.url} />
 
           })}
 

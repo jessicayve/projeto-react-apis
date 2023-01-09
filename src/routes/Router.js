@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React from "react"
 import { HomePage } from "../Pages/HomePage/HomePage";
-import PokedexPage from "../Pages/Pokedex/PokedexPage";
-import PokemonDetailPage from "../Pages/PokemonDetailsPage/PokemonDetailPage";
+import PokedexPage from "../Pages/PokedexPage/PokedexPage";
+import PokemonDetailPage from "../Pages/PokemonDetailsPage/PokemonDetailsPage";
 
 
 
@@ -19,3 +19,5 @@ const Router = () => {
   }
   
   export default Router
+
+

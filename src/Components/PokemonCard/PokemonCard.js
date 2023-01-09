@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { CardPokemon, ImageContainer, PokemonName, PokemonNumber, PokemonType, TypesContainer, Buttons, DetailsButton, DeleteButton } from './PokemonCardStyle'
 import pokebola from '../../assets/pokebola.png'
 import { getTypes } from '../../utils/ReturnPokemonType'
-import { getColors } from '../../utils/ReturnCardColor'
-import { ImageType } from './PokemonCardStyle'
+import { getColors } from '../../utils/ReturnCardColors'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -15,42 +14,47 @@ import { goToDetailsPage } from '../../routes/coordinator'
 
 export const PokemonCard = (props) => {
 
-  const context = useContext(GlobalContext)
-  const { addToPokedex } = context
+    const [pokemonColor, setPokemonColor] = useState("")
 
-  const { pokemonUrl, removeFromPokedex } = props;
-
-  const [pokemon, setPokemon] = useState({})
-  const [pokemonCor, setPokemonCor] = useState("")
-
-  const navigate = useNavigate()
-  const location = useLocation()
-
-  useEffect(() => {
-    fetchPokemon();
-  }, []);
-
-  const fetchPokemon = async () => {
-    try {
-      const response = await axios.get(pokemonUrl);
-      setPokemon(response.data);
-      setPokemonCor(getColors(response.data.types[0].type.name))
-
-    } catch (error) {
-      console.log("Erro ao buscar lista de pokemons");
-      console.log(error);
+    const { pokemonUrl } = props;
+  
+    const [pokemon, setPokemon] = useState({});
+  
+  
+    const context = useContext(GlobalContext);
+    const { addToPokedex, removeFromPokedex } = context;
+  
+  
+    const navigate = useNavigate()
+    const location = useLocation();
+  
+  
+  
+    useEffect(() => {
+      fetchPokemon();
+    }, []);
+  
+    const fetchPokemon = async () => {
+      try {
+        const response = await axios.get(pokemonUrl);
+        setPokemon(response.data);
+        setPokemonColor(getColors(response.data.types[0].type.name))
+  
+      } catch (error) {
+        console.log("Erro ao buscar lista de pokemons");
+        console.log(error);
+      }
     }
-  };
-  const capitalizeFistLetter = (string) => {
-    return string && string.charAt(0).toUpperCase() + string.slice(1);
-  }
+    const capitalizeFistLetter = (string) => {
+        return string && string.charAt(0).toUpperCase() + string.slice(1);
+    }
+
+
 
   return (
 
-
-
     <>
-      <CardPokemon style={{ backgroundColor: pokemonCor }}
+      <CardPokemon style={{ backgroundColor: pokemonColor }}
       >
 
 
@@ -94,7 +98,7 @@ export const PokemonCard = (props) => {
             src={pokemon.sprites?.other["official-artwork"].front_default} alt="pokemons" />
 
           <img className='pokebola'
-            src={pokebola} />
+            src={pokebola} alt="pokebola"/>
         </ImageContainer>
 
 
@@ -102,6 +106,4 @@ export const PokemonCard = (props) => {
     </>
   )
 }
-
-
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Header } from '../../Components/Header/Header'
 import { useContext } from 'react'
-import { ContainerPokedex, Pokedex,TituloPokedex } from './PokedexStyle'
+import { ContainerPokedex, Pokedex, TituloPokedex } from './PokedexPageStyle'
 import { GlobalContext } from '../../GlobalContext/GlobalContext'
 import { PokemonCard } from '../../Components/PokemonCard/PokemonCard'
 
